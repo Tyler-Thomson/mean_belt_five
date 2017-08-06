@@ -1,0 +1,27 @@
+<div>
+  <a href [routerLink]="['/create']">Add a Question</a>
+  <a href [routerLink]="['/dashboard']">Home</a>
+  <a href (click)="logout()">Logout</a>
+  <hr>
+  <h1>New Question</h1>
+  <form (submit)="createQuestion(); newQForm.reset()" #newQForm="ngForm">
+    <div>
+      <label>Question</label>
+      <textarea [(ngModel)]="newQuestion.question" name="question" rows="8" cols="80"></textarea>
+    </div>
+    <div>
+      <label>Correct Answer</label>
+      <textarea [(ngModel)]="newQuestion.correct" name="correct" rows="4" cols="80"></textarea>
+    </div>
+    <div>
+      <label>Fake Answer 1</label>
+      <textarea [(ngModel)]="newQuestion.wrongOne" name="wrongOne" rows="4" cols="80"></textarea>
+    </div>
+    <div>
+      <label>Fake Answer 2</label>
+      <textarea [(ngModel)]="newQuestion.wrongTwo" name="wrongTwo" rows="4" cols="80"></textarea>
+    </div>
+    <button type="button" [routerLink]="['/dashboard']">Cancel</button>
+    <input type="submit" value="Add Question">
+  </form>
+</div>

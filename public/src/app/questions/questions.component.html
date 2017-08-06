@@ -1,0 +1,15 @@
+<h4>Hi {{ currentUser.name }}</h4>
+<h4>Choose an answer for each of the questions and submit the test once done:</h4>
+<h4>Good luck!</h4>
+<form #playForm="ngForm" (submit)="submit()">
+  <div *ngFor="let question of randQuestions; let i = index">
+    <p>{{ i + 1 }}. {{ question.question }}</p>
+    <input type="radio" name="a{{i}}" value="{{ question.correct }}" [(ngModel)]="answers[i]" required>{{ question.correct }}<br>
+    <input type="radio" name="a{{i}}" value="{{ question.wrongOne }}" [(ngModel)]="answers[i]" required>{{ question.wrongOne }}<br>
+    <input type="radio" name="a{{i}}" value="{{ question.wrongTwo }}" [(ngModel)]="answers[i]" required>{{ question.wrongTwo }}<br>
+  </div>
+  <div>
+    <button type="button" [routerLink]="['/dashboard']">Cancel</button>
+    <input type="submit" value="Submit" [disabled]="!playForm.form.valid" />
+  </div>
+</form>

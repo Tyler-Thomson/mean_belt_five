@@ -1,0 +1,22 @@
+<a href [routerLink]="['/create']">Add a Question</a>
+<a href [routerLink]="['/dashboard']">Home</a>
+<a href (click)="logout()">Logout</a>
+<hr>
+<button type="button" [routerLink]="['/questions']">Play!</button>
+<div>Click the button above to start the game</div>
+
+
+<h1>Last MEAN Belt Exam</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Score</th>
+    <th>Percentage</th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>{{ user.name }}</td>
+    <td>{{ user.numCorrect }}/{{ user.numGuessed }}</td>
+    <td>{{ (user.numCorrect / user.numGuessed) * 100 | percent }}</td>
+  </tr>
+</table>
+<p *ngIf="currentUser.numCorrect != currentUser.numCorrect">That was great, {{ currentUser.name }}! Your score is {{ user.numCorrect }}/{{ user.numGuessed }}({{ (user.numCorrect / user.numGuessed) * 100 | percent }})</p>
